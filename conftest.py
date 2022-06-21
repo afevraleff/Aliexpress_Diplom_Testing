@@ -8,6 +8,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture
 def chrome_options(chrome_options):
@@ -31,10 +33,8 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture
 def web_browser(request, chrome_options):
-    if platform.system() == "Windows":
-        browser = webdriver.Chrome('../chromedriver.exe')
-    else:
-        browser = webdriver.Chrome('../chromedriver')
+
+    browser = webdriver.Chrome(ChromeDriverManager().install())
     # Return browser instance to test case:
     yield browser
 
