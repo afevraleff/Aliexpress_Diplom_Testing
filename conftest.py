@@ -1,5 +1,6 @@
 import pytest
 import os
+import platform
 import requests
 import allure
 import uuid
@@ -28,10 +29,12 @@ def pytest_runtest_makereport(item, call):
     return rep
 
 
-print(os.name)
 @pytest.fixture
 def web_browser(request, chrome_options):
-    browser = webdriver.Chrome()
+    if platform.system() == "Windows":
+        browser = webdriver.Chrome('../chromedriver.exe')
+    else:
+        browser = webdriver.Chrome('../chromedriver')
     # Return browser instance to test case:
     yield browser
 
