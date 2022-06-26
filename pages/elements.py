@@ -66,7 +66,7 @@ class WebElement(object):
         element = self.find(timeout=0.1)
         return element is not None
 
-    def is_visible(self):
+    def are_visible(self):
         """ Check is the element visible or not. """
 
         element = self.find(timeout=0.1)
@@ -202,7 +202,7 @@ class WebElement(object):
 
         # Scroll page to the element:
         # Option #1 to scroll to element:
-        # self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
+        #self._web_driver.execute_script("arguments[0].scrollIntoView();", element)
 
         # Option #2 to scroll to element:
         try:
@@ -299,7 +299,7 @@ class ManyWebElements(WebElement):
         # Make screen-shot of the page:
         self._web_driver.save_screenshot(file_name)
 
-    def is_visible(self):
+    def are_visible(self):
         """ Check is the element visible or not. """
 
         elements = self.find(timeout=0.1)
