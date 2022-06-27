@@ -58,7 +58,7 @@ def test_sale_filter(web_browser):
     page.search_button.click()
     page.wait_page_loaded()
     page.sale_filter.click()
-    page.sale_product_card_mark.are_visible()
+    page.sale_product_card_mark.is_visible()
 
 #6 Tmall
 def test_tmall_filter(web_browser):

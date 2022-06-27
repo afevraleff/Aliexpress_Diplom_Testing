@@ -61,7 +61,11 @@ class Main_Page(WebPage):
                                                   "li-kit_Link__link__cmgtoz ali-kit_Link__size-s__cmgtoz accent Footer_"
                                                   "FooterNavigation__copyrightLink__1atl6' and contains(text(), "
                                                   "'Пользовательские соглашения')]")
-
+    regisrt_btn_main_page = WebElement(xpath='//button[@class="ali-kit_Button__button__18ub7i ali-kit_Button__size-m__'
+                                             '18ub7i contained ali-kit_Button__default__18ub7i IntroductionEntrance_'
+                                             'WelcomeBlock__button__1q3w7" and contains(text(), "Регистрация")]')
+    enter_btn_main_page = ManyWebElements(xpath='//button[contains(text(), "Войти")]')
+    social_btn = ManyWebElements(class_name="Footer_styles__socialIcon__16mf5")
 
     #Другие страницы
     product_cards_searched = ManyWebElements(class_name="product-snippet_ProductSnippet__name__tusfnx")
@@ -74,13 +78,28 @@ class Main_Page(WebPage):
     add_to_basket = WebElement(xpath='//button[contains(text(), "Добавить в корзину")]')
     basket_banner = WebElement(class_name="Product_CartPopupHeader__header__1lfjs")
     like_button = WebElement(class_name="Product_LikeButton__heart__eiubz")
-    log_in_register_window = WebElement(xpath='//span[contains(text(), "Вход по номеру телефона")]')
+    log_in_register_window_enter_by_phone = WebElement(xpath='//span[contains(text(), "Вход по номеру телефона")]')
     policy_page = WebElement(xpath='//h1[contains(text(), "Политика Конфиденциальности AliExpress")]')
     cookie_banner_close = WebElement(class_name="PrivacyPolicyBanner_PrivacyPolicyBanner__close__5dnwg")
     user_agreement = WebElement(xpath='//div[contains(text(), "Юридические документы")]')
     input_username = WebElement(id="fm-login-id")
     input_password = WebElement(id="fm-login-password")
-    enter = WebElement(xpath='//button[contains(text(), "Войти")]')
+    input_phone = WebElement(name='phone')
+    enter_phone_msg = WebElement(xpath='//span[contains(text(), "Укажите номер телефона")]')
+    send_sms_btn = WebElement(xpath='//button[contains(text(), "Отправить SMS с кодом")]')
+    tmall_link_goods_categories = WebElement(xpath='//*[@id="__aer_root__"]/div/div[15]/div[2]/div[1]/div[1]/span[3]/div'
+                                                   '/span[3]/a')
+    social_enter_links = ManyWebElements(xpath='//img[@class="batman-v2_index__fm-sns-item__yyqpc5"]')
+    sms_code_window = ManyWebElements(class_name="batman-v2_index__fm-verification-code__11jofj")
+    invalid_log_pass_msg = WebElement(xpath='//span[contains(text(), "Ваши учетное имя или пароль неправильные.")]')
+    register_window = WebElement(class_name="ali-kit_Tabs__titles__1jwwll batman-v2_batman__tabsTitle__bbyedu")
+    register_window_enter = ManyWebElements(xpath='//span[contains(text(), "Вход")]')
+    forgotten_password_link = WebElement(xpath='//a[contains(text(), "Забыли пароль?")]')
+    repair_password = WebElement(xpath='//h2[contains(text(), "Восстановить пароль")]')
+    what_to_do_link = WebElement(xpath='//a[contains(text(), "Рассказываем, что делать")]')
+    what_to_do_header = WebElement(xpath='//h1[contains(text(), "Что делать, если не работает вход через соцсети")]')
+
+
     #Локаторы
     notif_banner = '//div[@class="WebPush_WebPush__reject__1eiqb WebPush_WebPush__webpushBase__1eiqb"]'
     my_profile_loc = '//span[contains(text(), "Мой Профиль")]'
@@ -96,4 +115,5 @@ class Main_Page(WebPage):
     favorite_shops_main_loc = '//a[contains(text(), "Любимые магазины")]'
     my_coupons_main_loc = '//a[contains(text(), "Мои купоны")]'
     get_coupons_main_loc = '//a[contains(text(), "Получить купоны")]'
+    logo_loc = "Header_Logo__mainLogo__1gbu2"
 

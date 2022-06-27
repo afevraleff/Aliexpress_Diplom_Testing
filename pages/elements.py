@@ -66,7 +66,7 @@ class WebElement(object):
         element = self.find(timeout=0.1)
         return element is not None
 
-    def are_visible(self):
+    def is_visible(self):
         """ Check is the element visible or not. """
 
         element = self.find(timeout=0.1)
@@ -299,7 +299,7 @@ class ManyWebElements(WebElement):
         # Make screen-shot of the page:
         self._web_driver.save_screenshot(file_name)
 
-    def are_visible(self):
+    def is_visible(self):
         """ Check is the element visible or not. """
 
         elements = self.find(timeout=0.1)

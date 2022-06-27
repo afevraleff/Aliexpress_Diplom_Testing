@@ -1,3 +1,5 @@
 {
-  "tests/test_Ali_Main_Page.py::test_main_my_profile_menu[//a[contains(text(), \"\\u041c\\u043e\\u0438 \\u0436\\u0435\\u043b\\u0430\\u043d\\u0438\\u044f\")]]": true
+  "tests/test_Ali_Main_Page.py::test_main_my_profile_menu[//a[contains(text(), \"\\u041c\\u043e\\u0438 \\u0436\\u0435\\u043b\\u0430\\u043d\\u0438\\u044f\")]]": true,
+  "tests/test_Ali_Main_Page_Login_Page.py::test_register_main_valid_phone": true,
+  "tests/test_Ali_Negative.py::test_register_main[sdfsdfs@]": true
 }

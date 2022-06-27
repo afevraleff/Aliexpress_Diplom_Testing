@@ -7,9 +7,11 @@ import uuid
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 import os,pickle
 
 @pytest.fixture
@@ -67,6 +69,7 @@ def web_browser(request, chrome_options):
 
 
 
+
 def get_test_case_docstring(item):
     """ This function gets doc string from test case and format it
         to show this docstring instead of the test case name in reports.
@@ -119,39 +122,6 @@ def pytest_collection_finish(session):
 
         pytest.exit('Done!')
 
-
-@pytest.fixture
-def web_browser_neg(request, chrome_options):
-
-    browser = webdriver.Chrome(ChromeDriverManager().install())
-    browser.maximize_window()
-    # Return browser instance to test case:
-    yield browser
-
-    # Do teardown (this code will be executed after each test):
-
-    if request.node.rep_call.failed:
-        # Make the screen-shot if test failed:
-        try:
-            browser.execute_script("document.body.bgColor = 'white';")
-
-            # Make screen-shot for local debug:
-            browser.save_screenshot('screenshots/' + str(uuid.uuid4()) + '.png')
-
-            # Attach screenshot to Allure report:
-            allure.attach(browser.get_screenshot_as_png(),
-                          name=request.function.__name__,
-                          attachment_type=allure.attachment_type.PNG)
-
-            # For happy debugging:
-            print('URL: ', browser.current_url)
-            print('Browser logs:')
-            for log in browser.get_log('browser'):
-                print(log)
-
-        except:
-            pass  # just ignore any errors here
-    browser.quit()
 
 
 
